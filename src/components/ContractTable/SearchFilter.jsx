@@ -7,7 +7,7 @@ import CustomForm from '../CustomForm';
 const formConfig = [
 
   {
-    label: '项目名称',
+    label: '项目说明',
     component: 'Input',
     componentProps: {
       placeholder: '请输入项目名称',
@@ -17,7 +17,7 @@ const formConfig = [
     },
   },
   {
-    label: '对方公司',
+    label: '应用项目',
     component: 'Select',
     componentProps: {
       placeholder: '请选择',
@@ -31,7 +31,7 @@ const formConfig = [
     },
   },
   {
-    label: '负责人',
+    label: '开发对象',
     component: 'Select',
     componentProps: {
       placeholder: '请选择',
@@ -53,29 +53,6 @@ const formConfig = [
     },
     formBinderProps: {
       name: 'createTime',
-    },
-  },
-  {
-    label: '签订时间',
-    component: 'RangePicker',
-    advanced: true,
-    componentProps: {
-      placeholder: '请选择日期',
-    },
-    formBinderProps: {
-      name: 'signTime',
-    },
-  },
-  {
-    label: '终止时间',
-    component: 'RangePicker',
-    advanced: true,
-    componentProps: {
-      placeholder: '请选择日期',
-      size: 'large',
-    },
-    formBinderProps: {
-      name: 'endTime',
     },
   },
   {

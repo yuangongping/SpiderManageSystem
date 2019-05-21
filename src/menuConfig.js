@@ -26,17 +26,17 @@ const headerMenuConfig = [
 
 const asideMenuConfig = [
   {
-    name: '项目管理',
+    name: '仪表盘',
     path: '/contract/index',
     icon: 'home2',
   },
   {
-    name: '需求管理',
+    name: '项目管理',
     path: '/contract/search',
     icon: 'search',
   },
   {
-    name: '用户中心',
+    name: '调度中心',
     path: '/contract/my',
     icon: 'person',
   },

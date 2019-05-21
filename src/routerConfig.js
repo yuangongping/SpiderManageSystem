@@ -6,6 +6,7 @@ import UserLogin from './pages/UserLogin';
 import UserRegister from './pages/UserRegister';
 import MyContract from './pages/MyContract';
 import ContractSearch from './pages/ContractSearch';
+import AddProject from './pages/AddProject'
 
 
 import { getRouterData } from './utils/utils';
@@ -25,12 +26,18 @@ const routerConfig = [
     component: MyContract,
   },
   {
+    path: '/contract/index',
+    component: ContractSearch,
+  },
+  {
     path: '/contract/search',
     component: ContractSearch,
+  },
+  {
+    path: '/contract/AddProject',
+    component: AddProject,
   }
 ];
 
 const routerData = getRouterData(routerConfig, asideMenuConfig);
 export { routerData };
-
-// export default routerConfig;

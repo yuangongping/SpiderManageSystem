@@ -6,6 +6,7 @@ import cx from 'classnames';
 import { asideMenuConfig } from '../../../../menuConfig';
 import styles from './index.module.scss';
 
+
 @withRouter
 export default class Aside extends PureComponent {
   state = {

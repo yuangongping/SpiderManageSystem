@@ -105,7 +105,6 @@ class UserRegister extends Component {
         if (!errors) {
           resolve(values)
         } else {
-          Message.success('er22222ror')
           reject(errors)
         }
       })

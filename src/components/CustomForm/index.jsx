@@ -146,7 +146,7 @@ class CustomForm extends Component {
                 onClick={handleReset}>
                 重 置
               </Button>
-              <a href="/#/contract/my">
+              <a href="/#/contract/AddProject">
                 <Button 
                   type="primary"
                 >

@@ -71,15 +71,15 @@ export default class ContractTable extends Component {
     // const { searchQuery, pageIndex } = this.state;
 
     setTimeout(() => {
-      const dataSource = Array.from({ length: 20 }).map((item, index) => {
+      const dataSource = Array.from({ length: 10 }).map((item, index) => {
         return {
-          id: `00000${index}`,
-          name: '聘用合同',
-          ourCompany: '杭州xxx科技有限公司',
-          otherCompany: '上海xxx科技有限公司',
-          amount: '999,999',
-          currency: 'CNY',
-          state: '签约中',
+          id: `${index+1}`,
+          name: 'kejiju',
+          ourCompany: '上海市科技局',
+          otherCompany: '数据组',
+          amount: '成都分公司',
+          currency: '知文项目',
+          state: '90%',
         };
       });
 
@@ -156,49 +156,48 @@ export default class ContractTable extends Component {
   getTableColumns = () => {
     return [
       {
-        title: '合同编号',
+        title: '序号',
         dataIndex: 'id',
         key: 'id',
         lock: true,
         width: 100,
       },
       {
-        title: '合同名称',
+        title: '名称',
         dataIndex: 'name',
         key: 'name',
         lock: true,
         width: 100,
       },
       {
-        title: '我方公司',
+        title: '备注',
         dataIndex: 'ourCompany',
         key: 'ourCompany',
         width: 160,
       },
       {
-        title: '对方公司',
+        title: '开发对象',
         dataIndex: 'otherCompany',
         key: 'otherCompany',
         width: 160,
       },
       {
-        title: '合同金额',
+        title: '应用对象',
         dataIndex: 'amount',
         key: 'amount',
         width: 100,
       },
       {
-        title: '币种',
+        title: '应用项目',
         dataIndex: 'currency',
         key: 'currency',
         width: 60,
       },
       {
-        title: '合同状态',
+        title: '状态',
         dataIndex: 'state',
         key: 'state',
-        cell: this.renderState,
-        width: 100,
+        width: 60,
       },
       {
         title: '操作',
