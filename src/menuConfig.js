@@ -32,7 +32,7 @@ const asideMenuConfig = [
   },
   {
     name: '项目管理',
-    path: '/contract/search',
+    path: '/contract/manage',
     icon: 'search',
   },
   {

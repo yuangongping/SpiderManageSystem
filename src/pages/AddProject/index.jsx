@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { Input, Grid, Form } from '@alifd/next';
-import styles from './index.module.scss';
+import ReactDOM from 'react-dom';
+import { withRouter, Link } from 'react-router-dom';
+import { Input, Button, Grid, Form, Upload } from '@alifd/next';
+import {
+  FormBinderWrapper as IceFormBinderWrapper,
+  FormBinder as IceFormBinder,
+  FormError as IceFormError,
+} from '@icedesign/form-binder';
+import IceIcon from '@icedesign/foundation-symbol';
 
-const { Row } = Grid;
+import styles from './index.module.scss';
+import htmlSource from './source'
+
+const { Row, Col } = Grid;
 const FormItem = Form.Item;
 
 @withRouter
@@ -19,42 +28,41 @@ export default class AddProject extends Component {
         loading: false,
       };
     }
+    
+
     render() {
-        return (
-          <div className={ styles.AddProject } >
-            <h3>添加项目</h3>
-            <br/>
-            <div className={ styles.FormContainer }>
-              <Form value={this.state} onChange={this.formChange}>
-                <FormItem required requiredMessage="必填" className={ styles.FormItem }>
-                    <label  className={ styles.StylesLabel } htmlFor="">项目名称</label>
-                    <Input
-                        className={ styles.StylesInput }
-                        name="account"
-                        maxLength={200}
-                        placeholder="必须为英文、数字、符号或其组合,不支持中文"
-                        autoComplete="name"
-                        autoFocus
-                        trim
-                    />
-                </FormItem>
-               
-                <Row className="formItem">
-                  <Form.Submit
-                    type="primary"
-                    validate
-                    loading={this.state.loading}
-                    onClick={this.handleSubmit}
-                    className="submitBtn"
-                  >
-                    上 传
-                  </Form.Submit>
-                </Row>
-              </Form>
-            </div>
+      return (
+        <div className={ styles.AddProject } >
+          <br/>
+          <div className="formContainer">
+            <Row>
+                <input className={ styles.url } type="text" placeholder="请输入URL"/>
+            </Row>
+            <Row>
+                <h1>数据渲染区域</h1>
+            </Row>
+            <Row>
+                <div className={ styles.show } >
+                    <iframe 
+                        name="right" 
+                        id="rightMain" 
+                        src="http://www.gzcz.gov.cn/" 
+                        frameBorder="no" 
+                        scrolling="auto" 
+                        width="100%" 
+                        height="500px" 
+                        // srcDoc={ htmlSource }
+                        allowtransparency="true">
+
+                    </iframe>
+                </div>
+            </Row>
+            <Row>
+                <Col span={3}><button className={ styles.btn }>渲染</button></Col>
+                <Col span={3}><button className={ styles.btn }>审查</button></Col>
+            </Row>
           </div>
-        );
-      }
-
+        </div> 
+      );
+    }
 }
-

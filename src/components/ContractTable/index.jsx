@@ -5,6 +5,7 @@ import { Table, Pagination, Button, Message } from '@alifd/next';
 import SearchFilter from './SearchFilter';
 import styles from './index.module.scss';
 
+// 查询关键字初始字典
 const defaultSearchQuery = {
   id: '',
   archiveId: '',
@@ -23,30 +24,37 @@ const defaultSearchQuery = {
 export default class ContractTable extends Component {
   static displayName = 'ContractTable';
 
+  // 设置属性类型
   static propTypes = {
     enableFilter: PropTypes.bool,
     searchQueryHistory: PropTypes.object,
   };
-
+  // 设置默认的属性
   static defaultProps = {
+    // 用于控制是否显示筛选组件
     enableFilter: true,
     searchQueryHistory: null,
   };
-
+  // 构造方法 
   constructor(props) {
     super(props);
+    // 设置初始属性
     this.state = {
+      // 装载标志
       loading: true,
+      // 查询字段为初始状态
       searchQuery: cloneDeep(defaultSearchQuery),
+      // 初始页
       pageIndex: 1,
+      // 初始表的内容数据为空
       dataSource: [],
     };
   }
-
+  // 生命周期组件，第一次渲染后调用，只在客户端
   componentDidMount() {
     this.fetchDataSource();
   }
-
+  // 在组件接收到一个新的 prop (更新后)时被调用。这个方法在初始化render时不会被调用
   componentWillReceiveProps(nextProps) {
     if (nextProps.hasOwnProperty('searchQueryHistory')) {
       this.setState(
@@ -61,7 +69,7 @@ export default class ContractTable extends Component {
       );
     }
   }
-
+  // 设置加载标志
   fetchDataSource = () => {
     this.setState({
       loading: true,
@@ -69,8 +77,8 @@ export default class ContractTable extends Component {
 
     // 根据当前的 searchQuery/pageIndex 获取列表数据，使用 setTimeout 模拟异步请求
     // const { searchQuery, pageIndex } = this.state;
-
     setTimeout(() => {
+      // 获取内容数据
       const dataSource = Array.from({ length: 10 }).map((item, index) => {
         return {
           id: `${index+1}`,
@@ -82,36 +90,39 @@ export default class ContractTable extends Component {
           state: '90%',
         };
       });
-
+      
+      // 重置数据
       this.setState({
         loading: false,
         dataSource,
       });
     }, 1 * 1000);
   };
-
+  // 监听查询字典的内存改变
   onSearchChange = (searchQuery) => {
     this.setState({
       searchQuery,
     });
   };
-
+  // 点击建建设按钮
   onSearchSubmit = (searchQuery) => {
+    // 首先设置初始页码为1，更新最新的查重字段
     this.setState(
       {
         searchQuery,
         pageIndex: 1,
       },
+      // 获取新数据
       this.fetchDataSource
     );
   };
-
+  // 重置检查字典为初始状态
   onSearchReset = () => {
     this.setState({
       searchQuery: cloneDeep(defaultSearchQuery),
     });
   };
-
+  // 页码控制
   onPaginationChange = (pageIndex) => {
     this.setState(
       {
@@ -128,7 +139,7 @@ export default class ContractTable extends Component {
       </div>
     );
   };
-
+  // 渲染操作列的修改合同与查看详情
   renderOper = () => {
     return (
       <div>
@@ -210,11 +221,13 @@ export default class ContractTable extends Component {
   };
 
   render() {
+    // 从属性中获取控制筛组件是否显示变量
     const { enableFilter } = this.props;
     const { searchQuery, dataSource, loading, pageIndex } = this.state;
 
     return (
       <div>
+        {/* 筛选组件 */}
         {enableFilter && (
           <SearchFilter
             value={searchQuery}

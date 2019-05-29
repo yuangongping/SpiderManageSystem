@@ -22,7 +22,7 @@ class Header extends PureComponent {
   render() {
     return (
       <div className={styles.headerContainer}>
-        <h1 className={styles.logo}>爬虫管理系统</h1>
+        <h1 className={styles.logo}>数据采集管理系统</h1>
         <div className={styles.rightContainer}>
           {/* Header 菜单项 begin */}
           {headerMenuConfig && headerMenuConfig.length > 0 ? (

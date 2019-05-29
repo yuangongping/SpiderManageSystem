@@ -9,7 +9,7 @@ function checkStatus(response) {
     error.response = response;
     throw error;
   }catch (e) {
-    console.log('sssssssssssssss');
+    console.log(e);
   }
   
 }

@@ -7,12 +7,20 @@ import UserRegister from './pages/UserRegister';
 import MyContract from './pages/MyContract';
 import ContractSearch from './pages/ContractSearch';
 import AddProject from './pages/AddProject'
+import ProjectManageMent from './pages/ProjectManageMent'
 
 
 import { getRouterData } from './utils/utils';
 import { asideMenuConfig } from './menuConfig';
 
 const routerConfig = [
+  {
+    path: '/contract/manage',
+    component: ProjectManageMent,
+  },
+
+
+
   {
     path: '/user/login',
     component: UserLogin,
@@ -29,10 +37,7 @@ const routerConfig = [
     path: '/contract/index',
     component: ContractSearch,
   },
-  {
-    path: '/contract/search',
-    component: ContractSearch,
-  },
+ 
   {
     path: '/contract/AddProject',
     component: AddProject,

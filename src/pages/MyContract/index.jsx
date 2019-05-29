@@ -8,32 +8,34 @@ import styles from './index.module.scss';
 
 export default class MyContract extends Component {
   static displayName = 'MyContract';
-
+  // 构造方法
   constructor(props) {
     super(props);
     this.state = {
+      // 首先设置对话框的属性为不可见
       createFormVisible: false,
     };
   }
-
+  // 设置对话框的属性为可见状态
   showCreateForm = () => {
     this.setState({
       createFormVisible: true,
     });
   };
-
+  // 隐藏对话框
   hideCreateForm = () => {
     this.setState({
       createFormVisible: false,
     });
   };
-
+  // 添加成功后
   onCreateSubmitSuccess = () => {
+    // 显示提示信息
     Message.success('新建成功');
+    // 同时将对话框设置为不可见
     this.hideCreateForm();
-    // 根据需求确定是否要重新加载 list 数据
   };
-
+  // 当点击对话框的取消按钮后，设置为不可见
   onCreateSubmitCancel = () => {
     this.hideCreateForm();
   };
